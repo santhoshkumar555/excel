@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* html {
+  background: linear-gradient(-45deg, #a5b4fc, #818cf8, #34d399, #14b8a6);
+  background-size: 400% 400%;
+  animation: gradient-animation 20s ease infinite;
+}
+
+html.dark {
+  background: linear-gradient(-45deg, #1e3a8a, #1d4ed8, #065f46, #0d9488);
+  background-size: 400% 400%;
+  animation: gradient-animation 20s ease infinite;
+} */
+
+html {
+  background: linear-gradient(-45deg, #e0e7ff, #c7d2fe, #d1d5db, #d8b4fe);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+html.dark {
+  background: linear-gradient(-45deg, #1f2937, #111827, #1e1b4b, #2f275e);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+}
+.glassy {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */
+}
+
+.dark .glassy {
+  background-color: rgba(0, 0, 0, 0.2);
+}
