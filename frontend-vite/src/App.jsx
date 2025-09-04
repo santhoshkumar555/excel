@@ -10,6 +10,7 @@ import Home from './components/Home.jsx';
 import Footer from './components/Footer.jsx';
 import { useContext } from 'react';
 import { ThemeContext } from './context/ThemeContext';
+import Background from './components/Background.jsx';
 
 import './index.css';
 
@@ -19,7 +20,10 @@ function App() {
 
   return (
     <Router>
+      <Background />
+      
       <Navbar />
+      
        <main className='bg-transparent'>
         <Routes>
           <Route path="/" element={<Home />} />

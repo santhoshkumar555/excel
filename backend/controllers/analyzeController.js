@@ -66,7 +66,8 @@ const readFileFromCloud = async (url) => {
 };
 
 const getChartData = asyncHandler(async (req, res) => {
-  const { fileId, xAxis, yAxis, chartType, sheetName } = req.body;
+  const { fileId, xAxis, yAxis, zAxis, chartType, sheetName } = req.body; 
+  // <-- include zAxis
 
   if (!fileId || !xAxis || !yAxis || !chartType || !sheetName) {
     res.status(400);
@@ -86,19 +87,28 @@ const getChartData = asyncHandler(async (req, res) => {
 
   const labels = rawData.map(row => row[xAxis]);
   const data = rawData.map(row => row[yAxis]);
+  let zData = null;
+
+  // ✅ Only collect Z if provided
+  if (zAxis) {
+    zData = rawData.map(row => row[zAxis]);
+  }
 
   await History.create({
     user: req.user._id,
     file: fileId,
     xAxis,
     yAxis,
+    zAxis,         // <-- save in history too
     chartType,
   });
 
   res.json({
     labels,
     data,
+    zData,        // <-- include in response
   });
 });
+
 
 module.exports = { getChartData };
