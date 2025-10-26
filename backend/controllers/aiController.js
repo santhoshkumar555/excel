@@ -5,7 +5,7 @@ const File = require('../models/File');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const axios = require('axios'); // Import axios for reading the file from the URL
 
-const genAI = new GoogleGenerativeAI('AIzaSyAkD2T0ieoxt3N2-CHNyyFhl72nX3BbbPg');
+const genAI = new GoogleGenerativeAI('your-gemini-api-key');
 
 // Helper function to read file from a URL
 const readFileFromCloud = async (url) => {
